@@ -1,0 +1,17 @@
+<% if user_signed_in?%>
+  <h1>Tweets</h1>
+  <%= link_to 'Make a tweet', new_tweet_path %>
+  <ol>
+    <% @tweets.each do |tweet| %>
+      <li>
+        <p><%= tweet.user.username %></p>
+        <p><%= tweet.title %></p>
+        <p><%= tweet.body %></p>
+        <p><%= link_to 'View', tweet %></p>
+      </li>
+    <% end %>
+  </ol>
+<% else %>
+  <h1>Create an account!</h1>
+  <%= link_to 'Click here!', new_user_registration_path %>
+<% end %>
